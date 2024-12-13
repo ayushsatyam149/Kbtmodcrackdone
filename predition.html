@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from kinglzr.shop/Game/predition.php by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 13 Dec 2024 11:30:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS VIP PREDICTION</title>
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #90D5FF; /* Light blue */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); /* Black transparent background for readability */
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #90D5FF; /* Light blue border */
+            box-shadow: 0 0 20px rgba(144, 213, 255, 0.8), 0 0 30px rgba(144, 213, 255, 0.6), 0 0 40px rgba(144, 213, 255, 0.4); /* Initial glow */
+            animation: neon-border 1.5s infinite alternate; /* Dynamic effect */
+        }
+        img.logo {
+            max-width: 150px; /* Adjust the size of the logo */
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 15px;
+            font-size: 1.2em;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 300px; /* Limit max width for desktop */
+            border: none;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        input {
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            background-color: #90D5FF; /* Light blue */
+            color: #000;
+            cursor: pointer;
+        }
+        .result, .error-message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #90D5FF; /* Light blue for error message */
+        }
+        .result-box {
+            display: none;
+            padding: 20px;
+            border: 2px solid #90D5FF; /* Light blue border */
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(144, 213, 255, 0.8), 0 0 30px rgba(144, 213, 255, 0.6); /* Neon effect for result */
+        }
+        #waitMessage {
+            font-size: 1.5em;
+            color: #fff;
+        }
+        @keyframes neon-border {
+            0% {
+                box-shadow: 0 0 10px rgba(144, 213, 255, 0.5), 0 0 20px rgba(144, 213, 255, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(144, 213, 255, 0.9), 0 0 40px rgba(144, 213, 255, 0.8), 0 0 60px rgba(144, 213, 255, 0.6);
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            input, button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Enter Period Number</h1>
+    <p>Enter only the last 3 digits of the period number</p>
+    
+    <input type="number" id="periodNumber" placeholder="Last 3 digits" max="999" min="0" maxlength="3">
+    <div class="form-group">
+        <button onclick="showResult()">Submit</button>
+    </div>
+
+    <div class="error-message" id="errorMessage" style="display:none;">Please enter exactly 3 digits.</div>
+
+    <div class="result-box" id="resultBox">
+        <p id="waitMessage">Wait...</p>
+        <p id="resultMessage" style="display:none;"></p>
+    </div>
+</div>
+
+<script>
+    function showResult() {
+        const periodNumber = document.getElementById('periodNumber').value;
+
+        if (periodNumber.length === 3) {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('resultBox').style.display = 'block';
+            document.getElementById('waitMessage').style.display = 'block';
+            document.getElementById('resultMessage').style.display = 'none';
+
+            // Simulate 3 seconds wait
+            setTimeout(() => {
+                document.getElementById('waitMessage').style.display = 'none';
+
+                // Randomly show "big" or "small"
+                const result = Math.random() < 0.5 ? 'BIG' : 'SMALL';
+                document.getElementById('resultMessage').innerHTML = "Result: " + result;
+                document.getElementById('resultMessage').style.display = 'block';
+            }, 3000);
+        } else {
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+
+<!-- Mirrored from kinglzr.shop/Game/predition.php by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 13 Dec 2024 11:30:10 GMT -->
+</html>

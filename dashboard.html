@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from kinglzr.shop/Game/dashboard.php by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 13 Dec 2024 11:27:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREDICTION</title>
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed; /* Your background image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #90D5FF; /* Light blue text */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            border: 3px solid #90D5FF; /* Light blue Neon Border */
+            border-radius: 15px;
+            box-shadow: 0 0 15px #90D5FF, 0 0 30px #90D5FF, 0 0 45px #90D5FF; /* Light blue glow */
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.8); /* Background transparency */
+            max-width: 90%;
+        }
+
+        img.logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin: 20px 0;
+            display: none; /* Hide the form group initially */
+        }
+
+        select, button {
+            padding: 15px;
+            font-size: 1.2em;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #90D5FF; /* Light blue Neon Border */
+            border-radius: 10px;
+            box-shadow: 0 0 10px #90D5FF; /* Light blue glow */
+        }
+
+        select {
+            background-color: #333;
+            color: #fff; /* White text for select */
+        }
+
+        button {
+            background-color: #90D5FF; /* Light blue button background */
+            color: #000; /* Black button text */
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px #90D5FF, 0 0 30px #90D5FF;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #90D5FF; /* Light blue loading text */
+        }
+
+        .typed-text {
+            font-size: 2em;
+            text-shadow: 0 0 5px #90D5FF, 0 0 10px #90D5FF, 0 0 20px #90D5FF, 0 0 40px #90D5FF; /* Light blue glow */
+        }
+
+        h2#versionText {
+            font-size: 1.5em;
+            text-shadow: 0 0 5px #90D5FF, 0 0 10px #90D5FF, 0 0 20px #90D5FF, 0 0 40px #90D5FF; /* Light blue glow */
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%; /* Ensure container fits the screen */
+                padding: 10px;
+            }
+
+            select, button {
+                font-size: 1em;
+                width: 100%; /* Full width for mobile */
+            }
+
+            img.logo {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="logo.png" alt="Logo" class="logo"> <!-- Logo Image -->
+    <div id="typedText" class="typed-text"></div>
+    <h2 id="versionText">Version 1.0.0</h2>
+
+    <div class="form-group" id="serverSelectGroup">
+        <label for="serverSelect">Select Server</label>
+        <select id="serverSelect" aria-label="Select Server">
+            <option value="server1">Server 1</option>
+            <option value="server2">Server 2</option>
+            <option value="server3">Server 3</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="gameSelectGroup">
+        <label for="gameSelect">Select Game</label>
+        <select id="gameSelect" aria-label="Select Game">
+            <option value="99club">91 Club</option>
+            <option value="tiranga">Tiranga</option>
+            <option value="okwin">Okwin</option>
+            <option value="55club">55 Club</option>
+            <option value="tclottery">TC Lottery</option>
+            <option value="bdgwin">BDG Win</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="checkButtonGroup">
+        <button onclick="seeResult()">Check</button>
+    </div>
+    
+    <div class="loading" id="loading">Loading...</div>
+</div>
+
+<script>
+    // Typing effect function
+    function typeText(text, element, delay) {
+        let index = 0;
+        const interval = setInterval(() => {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
+            } else {
+                clearInterval(interval);
+                document.getElementById('serverSelectGroup').style.display = 'block';
+                document.getElementById('gameSelectGroup').style.display = 'block';
+                document.getElementById('checkButtonGroup').style.display = 'block';
+            }
+        }, delay);
+    }
+
+    window.onload = function() {
+        const typedText = document.getElementById('typedText');
+        typeText("SERVER CONNECTED", typedText, 100); // Adjust delay for typing speed
+    };
+
+    function seeResult() {
+        const selectedServer = document.getElementById('serverSelect').value;
+        const selectedGame = document.getElementById('gameSelect').value;
+        const loading = document.getElementById('loading');
+        
+        loading.style.display = 'block'; // Show loading
+
+        // Simulate a delay for loading
+        setTimeout(() => {
+            window.location.href = `predition.php?server=${selectedServer}&game=${selectedGame}`;
+        }, 1000);
+    }
+</script>
+
+</body>
+
+<!-- Mirrored from kinglzr.shop/Game/dashboard.php by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 13 Dec 2024 11:27:41 GMT -->
+</html>
